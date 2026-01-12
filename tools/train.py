@@ -13,6 +13,11 @@ from pointcept.engines.defaults import (
 from pointcept.engines.train import TRAINERS
 from pointcept.engines.launch import launch
 
+# import wandb
+# wandb.init(mode="offline")
+import os
+os.environ["WANDB_MODE"] = "disabled"
+os.environ["WANDB_DISABLED"] = "true"
 
 def main_worker(cfg):
     cfg = default_setup(cfg)

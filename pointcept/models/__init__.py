@@ -26,3 +26,6 @@ from .masked_scene_contrast import *
 from .point_prompt_training import *
 from .sonata import *
 from .concerto import *
+
+# 【新增】 导入 ditr 模块
+from .ditr import *

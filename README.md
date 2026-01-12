@@ -12,6 +12,17 @@
 
 [![Formatter](https://github.com/pointcept/pointcept/actions/workflows/formatter.yml/badge.svg)](https://github.com/pointcept/pointcept/actions/workflows/formatter.yml)
 
+**Pointcept-Fusion is a test code based on Pointcept**
+![Dino feature projection in point cloud](https://private-user-images.githubusercontent.com/55684670/534471788-41c7e914-b67d-42f3-b9b2-bcf1b7d5b9cf.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgyMDQwNTEsIm5iZiI6MTc2ODIwMzc1MSwicGF0aCI6Ii81NTY4NDY3MC81MzQ0NzE3ODgtNDFjN2U5MTQtYjY3ZC00MmYzLWI5YjItYmNmMWI3ZDViOWNmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAxMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMTEyVDA3NDIzMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFiYzJlMGJjMjYwNDhmMWZiNTU2MDg3OTk5ZDNhNDJmYmI0MjUxYjE2MTFlNDllMGVmMmJmMDllMTdhZDk4OWImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.XzUr_Zqq3tOQCdWe8GpRvIjRdRcOQV5aLDhahz4KMMk)
+
+**Usage**  
+1- Download DINO model to ditr folder according to pointcept/models/ditr/pth_download.txt  
+2- update your conda environment  
+3- fit your config file, Note: mix_prob should be set 0, choose to open/close vis  
+4- train your model, e.g., python tools/train.py --config-file configs/nuscenes/semseg-pt-v3m1-0-base-lessworker-fusion.py --options save_path=exp/scannet/semseg-pt-v3m1-0-base-lessworker-fusion  
+**Following is origin Pointcept Readme:**    
+
+
 **Pointcept** is a powerful and flexible codebase for point cloud perception research. It is also an official implementation of the following paper:
 - 🚀 **Concerto: Joint 2D-3D Self-Supervised Learning Emerges Spatial Representations**  
 *Yujia Zhang, Xiaoyang Wu, Yixing Lao, Chengyao Wang, Zhuotao Tian, Naiyan Wang, Hengshuang Zhao*   

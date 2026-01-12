@@ -1,0 +1,1 @@
+https://huggingface.co/timm/vit_large_patch14_dinov2.lvd142m/resolve/main/pytorch_model.bin
