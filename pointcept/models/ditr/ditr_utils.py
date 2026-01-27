@@ -61,13 +61,19 @@ class DINOFeatureExtractor(nn.Module):
             x = images.view(b * n, c, h, w)
         elif images.dim() == 4:
             # [Batch*N_views, C, H, W] -> 维度被合并的情况
-            # nuScenes 固定有 6 个相机
+            # nuScenes 固定有 6 个相机，这里考虑其他情况
             total_n, c, h, w = images.shape
-            n = 6 
-            # 确保 total_n 能被 6 整除，否则说明数据有问题
+            n = None
+            for v in (7, 6, 5, 4, 3, 2):
+                if total_n % v == 0:
+                    n = v
+                    break
+            if n is None:
+                # fallback: treat each item as its own view (batch size = 1)
+                n = total_n 
+            # 确保 total_n 能被 n 整除，否则说明数据有问题（只针对nuScenes ）
             if total_n % n != 0:
-                # 容错：如果不是 6 的倍数，可能 batch_size=1 且只有 1 个 view? 
-                # 但根据 Dataset 代码我们总是 stack 6 张。
+                # 容错：如果不是 n 的倍数，可能 batch_size=1 且只有 1 个 view? 
                 # 假如出错，这里会抛出异常
                 raise ValueError(f"Images shape {images.shape} implies flattened batch, but {total_n} is not divisible by 6 views.")
             
